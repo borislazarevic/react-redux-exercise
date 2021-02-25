@@ -1,0 +1,17 @@
+.Person {
+  padding: 10px;
+  margin: 10px auto;
+  border: 1px solid #eee;
+  border-radius: 20px;
+  box-shadow: 0 2px 2px #ccc;
+  box-sizing: border-box;
+  width: 35%;
+  cursor: pointer;
+  transition: all 0.65s ease-in-out;
+}
+
+.Person:hover {
+  background-color: #1d527c;
+  color: white;
+  transform: scale(1.1);
+}
