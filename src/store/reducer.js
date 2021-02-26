@@ -1,10 +1,12 @@
+import * as ActionTypes from "../constants/constants";
+
 const initialState = {
   persons: [],
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case "ADD_PERSON":
+    case ActionTypes.ADD_PERSON:
       const textArray = [
         "Boris",
         "Natasa",
@@ -26,7 +28,7 @@ const reducer = (state = initialState, action) => {
         persons: state.persons.concat(newPerson),
       };
 
-    case "DELETE_PERSON":
+    case ActionTypes.DELETE_PERSON:
       return {
         ...state,
         persons: state.persons.filter(person => person.id !== action.personID),
