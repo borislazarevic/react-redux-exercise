@@ -2,7 +2,7 @@ import React from "react";
 
 import classes from "./AddPerson.module.css";
 
-const addPerson = props => (
+const AddPerson = props => (
   <div className={classes.AddPerson}>
     <button className={classes.Button} onClick={props.personAdded}>
       Add Person
@@ -10,4 +10,4 @@ const addPerson = props => (
   </div>
 );
 
-export default addPerson;
+export default AddPerson;

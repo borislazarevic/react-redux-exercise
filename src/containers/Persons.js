@@ -5,32 +5,6 @@ import Person from "../components/Person/Person";
 import AddPerson from "../components/AddPerson/AddPerson";
 
 class Persons extends Component {
-  state = {
-    persons: [],
-  };
-
-  personAddedHandler = () => {
-    const textArray = [
-      "Boris",
-      "Natasa",
-      "Ognjen",
-      "Marko",
-      "Nemanja",
-      "Zeljka",
-      "Srdjan",
-    ];
-    const randomNumber = Math.floor(Math.random() * textArray.length);
-    const randomName = textArray[randomNumber];
-    const newPerson = {
-      id: Math.random(),
-      name: randomName,
-      age: Math.floor(Math.random() * 40),
-    };
-    this.setState(prevState => {
-      return { persons: prevState.persons.concat(newPerson) };
-    });
-  };
-
   personDeletedHandler = personId => {
     this.setState(prevState => {
       return {
@@ -42,8 +16,8 @@ class Persons extends Component {
   render() {
     return (
       <div>
-        <AddPerson personAdded={this.personAddedHandler} />
-        {this.state.persons.map(person => (
+        <AddPerson personAdded={this.props.AddPerson} />
+        {this.props.persons.map(person => (
           <Person
             key={person.id}
             name={person.name}
@@ -62,4 +36,10 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(Persons);
+const mapDispatchToProps = dispatch => {
+  return {
+    AddPerson: () => dispatch({ type: "ADD_PERSON" }),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Persons);
